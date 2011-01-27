@@ -57,7 +57,7 @@ emit_search($categorized, []);
 
 sub emit_search {
     my($bin, $keys) = @_;
-    if ($bin->{count} < 100) {
+    if ($bin->{count} < 100 or scalar @$keys == scalar @filters) {
         write_search_file($keys);
     } else {
         foreach my $key (keys %$bin) {
